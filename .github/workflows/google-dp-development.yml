@@ -1,0 +1,18 @@
+name: google-dp-development
+
+on:
+  push:
+    paths:
+      - 'google-dp/development/**'
+      - .github/workflows/google-dp-development.yml
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          google-dp/development/build.sh
+          echo ${{ secrets.PAT }} | docker login ghcr.io -u anthager --password-stdin
+          docker push ghcr.io/anthager/google-dp-development

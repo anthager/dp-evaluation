@@ -1,0 +1,126 @@
+categorical_columns:
+- lower: 1.0
+  name: case_id
+  upper: 318438.0
+- lower: 1.0
+  name: Hospital_code
+  upper: 32.0
+- lower: 0
+  meta:
+    0: a
+    1: b
+    2: c
+    3: d
+    4: e
+    5: f
+    6: g
+  name: Hospital_type_code
+  upper: 6
+- lower: 1.0
+  name: City_Code_Hospital
+  upper: 13.0
+- lower: 0
+  meta:
+    0: X
+    1: Y
+    2: Z
+  name: Hospital_region_code
+  upper: 2
+- lower: 0.0
+  name: Available Extra Rooms in Hospital
+  upper: 24.0
+- lower: 0
+  meta:
+    0: TB & Chest disease
+    1: anesthesia
+    2: gynecology
+    3: radiotherapy
+    4: surgery
+  name: Department
+  upper: 4
+- lower: 0
+  meta:
+    0: P
+    1: Q
+    2: R
+    3: S
+    4: T
+    5: U
+  name: Ward_Type
+  upper: 5
+- lower: 0
+  meta:
+    0: A
+    1: B
+    2: C
+    3: D
+    4: E
+    5: F
+  name: Ward_Facility_Code
+  upper: 5
+- lower: 1.0
+  name: patientid
+  upper: 131624.0
+- lower: 0
+  meta:
+    0: Emergency
+    1: Trauma
+    2: Urgent
+  name: Type of Admission
+  upper: 2
+- lower: 0
+  meta:
+    0: Extreme
+    1: Minor
+    2: Moderate
+  name: Severity of Illness
+  upper: 2
+- lower: 0.0
+  name: Visitors with Patient
+  upper: 32.0
+- lower: 0
+  meta:
+    0: 0-10
+    1: 11-20
+    2: 21-30
+    3: 31-40
+    4: 41-50
+    5: 51-60
+    6: 61-70
+    7: 71-80
+    8: 81-90
+    9: 91-100
+  name: Age
+  upper: 9
+- lower: 0
+  meta:
+    0: 0-10
+    1: 11-20
+    2: 21-30
+    3: 31-40
+    4: 41-50
+    5: 51-60
+    6: 61-70
+    7: 71-80
+    8: 81-90
+    9: 91-100
+    10: More than 100 Days
+  name: Stay
+  upper: 10
+ordinal_columns: []
+other_columns:
+- lower: 1.0
+  name: Bed Grade
+  upper: 4.0
+- lower: 1.0
+  name: City_Code_Patient
+  upper: 38.0
+- lower: 1800.0
+  name: Admission_Deposit
+  upper: 11008.0
+statistical_queries:
+  allowlisted_queries:
+    - histogram
+    - sum
+    - avg
+    - count

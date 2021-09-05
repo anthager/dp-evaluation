@@ -1,0 +1,32 @@
+name: smartnoise-synthetic-evaluation
+
+on:
+  push:
+    paths:
+      - 'smartnoise-synthetic/evaluation/**'
+      - .github/workflows/smartnoise-synthetic-evaluation.yml
+      - 'smartnoise-synthetic/src/**'
+      - 'dpevaluation/**'
+      - 'smartnoise-synthetic/requirements.txt'
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          smartnoise-synthetic/evaluation/build.sh
+          echo ${{ secrets.PAT }} | docker login ghcr.io -u anthager --password-stdin
+          docker push ghcr.io/anthager/smartnoise-synthetic-evaluation
+
+
+
+
+
+
+
+
+
+
+

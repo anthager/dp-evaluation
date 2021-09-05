@@ -1,0 +1,15 @@
+batch_size: 4
+dataset_size: 6000
+dp_l2_norm_clip: 0.1
+dp_noise_multiplier: 0.3
+epochs: 100
+epsilon: 65.77
+generate_time: 409.8644115924835
+learning_rate: 0.001
+num_of_runs: 0
+predict_batch_size: 1
+rnn_units: 32
+test_start_time: 1621018488.0677025
+timestamp: '2021-05-14T19:38:58'
+validator: gretel
+tool: gretel

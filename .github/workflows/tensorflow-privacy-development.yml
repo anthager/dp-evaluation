@@ -1,0 +1,19 @@
+name: tensorflow-privacy-development
+
+on:
+  push:
+    paths:
+      - 'tensorflow-privacy/development/**'
+      - .github/workflows/tensorflow-privacy-development.yml
+      - tensorflow-privacy/requirements.txt
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          tensorflow-privacy/development/build.sh
+          echo ${{ secrets.PAT }} | docker login ghcr.io -u anthager --password-stdin
+          docker push ghcr.io/anthager/tensorflow-privacy-development

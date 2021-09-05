@@ -1,0 +1,19 @@
+name: smartnoise-development
+
+on:
+  push:
+    paths:
+      - 'smartnoise/development/**'
+      - .github/workflows/smartnoise-development.yml
+      - smartnoise/requirements.txt
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          smartnoise/development/build.sh
+          echo ${{ secrets.PAT }} | docker login ghcr.io -u anthager --password-stdin
+          docker push ghcr.io/anthager/smartnoise-development

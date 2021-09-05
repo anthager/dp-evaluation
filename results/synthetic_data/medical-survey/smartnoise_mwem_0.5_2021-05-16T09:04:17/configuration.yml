@@ -1,0 +1,8 @@
+dataset_size: 5000
+epsilon: 0.5
+generate_time: 712.0318427085876
+num_of_runs: 0
+query_count: 400
+test_start_time: 1621070261.1989787
+timestamp: '2021-05-16T09:04:17'
+tool: smartnoise_mwem

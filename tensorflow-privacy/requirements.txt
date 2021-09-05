@@ -1,0 +1,8 @@
+tensorflow
+tensorflow-privacy
+numpy==1.19.5
+pandas
+matplotlib==3.3.4
+sklearn==0.0
+PyYAML==5.4.1
+sortedcontainers==2.3.0

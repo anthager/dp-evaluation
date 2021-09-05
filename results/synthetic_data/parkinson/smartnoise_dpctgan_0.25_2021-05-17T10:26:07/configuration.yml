@@ -1,0 +1,9 @@
+batch_size: 300
+dataset_size: 3000
+epochs: 300
+epsilon: 0.25
+generate_time: 7.977865934371948
+num_of_runs: 0
+test_start_time: 1621246701.1382108
+timestamp: '2021-05-17T10:26:07'
+tool: smartnoise_dpctgan

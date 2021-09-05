@@ -1,0 +1,17 @@
+\begin{tabular}{rrrrrrrr}
+\toprule
+ dataset\_size &  epochs &  predict\_batch\_size &  rnn\_units &  batch\_size &  learning\_rate &  dp\_noise\_multiplier &  dp\_l2\_norm\_clip \\
+\midrule
+       2000.0 &   100.0 &                 1.0 &       32.0 &         4.0 &          0.005 &                  0.1 &              0.1 \\
+       3000.0 &   100.0 &                 1.0 &       32.0 &         4.0 &          0.005 &                  0.1 &              0.1 \\
+       4000.0 &   100.0 &                 1.0 &       32.0 &         4.0 &          0.005 &                  0.3 &              0.1 \\
+       5000.0 &   100.0 &                 1.0 &       32.0 &         4.0 &          0.005 &                  0.3 &              0.1 \\
+       6000.0 &   100.0 &                 1.0 &       32.0 &         4.0 &          0.005 &                  0.3 &              0.1 \\
+       7000.0 &   100.0 &                 1.0 &       32.0 &         4.0 &          0.005 &                  0.3 &              0.1 \\
+       8000.0 &   100.0 &                 1.0 &       32.0 &         4.0 &          0.005 &                  0.3 &              0.1 \\
+       8500.0 &   100.0 &                 1.0 &       32.0 &         4.0 &          0.005 &                  0.3 &              0.1 \\
+       9000.0 &   100.0 &                 1.0 &       32.0 &         4.0 &          0.005 &                  0.3 &              0.1 \\
+       9358.0 &   100.0 &                 1.0 &       32.0 &         4.0 &          0.001 &                  0.3 &              0.1 \\
+\caption[List of the hyper parameters used for generating the best dataset for Smartnoise with the DPCTGAN synthesizer]{List of the hyper parameters used for generating the best dataset for Smartnoise with the DPCTGAN synthesizer for the \emph{Health survey} dataset}
+\label{hyper_params_mwem_health_survey}
+\end{longtable}

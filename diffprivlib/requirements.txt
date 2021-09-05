@@ -1,0 +1,5 @@
+diffprivlib==0.4.1
+sklearn==0.0
+matplotlib==3.4.1
+pandas==1.2.3
+PyYAML==5.4.1

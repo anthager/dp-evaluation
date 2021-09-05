@@ -1,0 +1,9 @@
+memory,docker_timestamp,process_timestamp,container_name
+2871296,2021-07-05T04:27:00.5559702Z,2021-07-05T04:27:00,smartnoise-synthetic-evaluation
+69111808,2021-07-05T04:27:01.5623718Z,2021-07-05T04:27:01,smartnoise-synthetic-evaluation
+153616384,2021-07-05T04:27:02.5674073Z,2021-07-05T04:27:02,smartnoise-synthetic-evaluation
+196243456,2021-07-05T04:27:03.5717168Z,2021-07-05T04:27:03,smartnoise-synthetic-evaluation
+233259008,2021-07-05T04:27:04.5757058Z,2021-07-05T04:27:04,smartnoise-synthetic-evaluation
+234545152,2021-07-05T04:27:05.5800555Z,2021-07-05T04:27:05,smartnoise-synthetic-evaluation
+234807296,2021-07-05T04:27:06.5845489Z,2021-07-05T04:27:06,smartnoise-synthetic-evaluation
+188903424,2021-07-05T04:27:07.5889229Z,2021-07-05T04:27:07,smartnoise-synthetic-evaluation

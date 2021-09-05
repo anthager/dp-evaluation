@@ -1,0 +1,21 @@
+name: opacus-evaluation
+
+on:
+  push:
+    paths:
+      - 'opacus/evaluation/**'
+      - .github/workflows/opacus-evaluation.yml
+      - 'opacus/src/**'
+      - 'opacus/requirements.txt'
+      - 'dpevaluation/**'
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          opacus/evaluation/build.sh
+          echo ${{ secrets.PAT }} | docker login ghcr.io -u anthager --password-stdin
+          docker push ghcr.io/anthager/opacus-evaluation

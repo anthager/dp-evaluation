@@ -1,0 +1,9 @@
+batch_size: 100
+dataset_size: 6000
+epochs: 300
+epsilon: 3.0
+generate_time: 73.52290058135986
+num_of_runs: 0
+test_start_time: 1620770845.2818708
+timestamp: '2021-05-11T22:54:37'
+tool: smartnoise_patectgan

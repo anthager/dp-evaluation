@@ -1,0 +1,23 @@
+name: synthetic-evaluator
+
+on:
+  push:
+    paths:
+      - 'synthetic-evaluator/**'
+      - 'dpevaluation/**'
+      - .github/workflows/synthetic-evaluator.yml
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          synthetic-evaluator/build.sh
+          echo ${{ secrets.PAT }} | docker login ghcr.io -u anthager --password-stdin
+          docker push ghcr.io/anthager/synthetic-evaluator
+
+
+
+

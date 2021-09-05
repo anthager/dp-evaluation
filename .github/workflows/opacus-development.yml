@@ -1,0 +1,19 @@
+name: opacus-development
+
+on:
+  push:
+    paths:
+      - 'opacus/development/**'
+      - .github/workflows/opacus-development.yml
+      - opacus/requirements.txt
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          opacus/development/build.sh
+          echo ${{ secrets.PAT }} | docker login ghcr.io -u anthager --password-stdin
+          docker push ghcr.io/anthager/opacus-development

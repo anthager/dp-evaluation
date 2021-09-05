@@ -1,0 +1,6 @@
+version: '3'
+services:
+  postgres:
+    image: ghcr.io/anthager/google-dp-postgres:latest
+    container_name: google-dp-postgres
+    restart: always

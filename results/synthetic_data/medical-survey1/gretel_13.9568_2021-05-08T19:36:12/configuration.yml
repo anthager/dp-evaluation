@@ -1,0 +1,33 @@
+batch_size: 4
+dataset_size: 8500
+delta: !!python/object/apply:numpy.core.multiarray.scalar
+- &id001 !!python/object/apply:numpy.dtype
+  args:
+  - f8
+  - false
+  - true
+  state: !!python/tuple
+  - 3
+  - <
+  - null
+  - null
+  - null
+  - -1
+  - -1
+  - 0
+- !!binary |
+  AAAAAAAAAAA=
+dp_l2_norm_clip: 0.1
+dp_noise_multiplier: 0.3
+epochs: 300
+epsilon: !!python/object/apply:numpy.core.multiarray.scalar
+- *id001
+- !!binary |
+  J6CJsOHpK0A=
+generate_time: 177.49936509132385
+learning_rate: 0.001
+num_of_runs: 0
+predict_batch_size: 1
+rnn_units: 16
+test_start_time: 1620502384.0048285
+timestamp: '2021-05-08T19:36:12'

@@ -1,0 +1,19 @@
+name: memory-test
+
+on:
+  push:
+    paths:
+      - 'memory-test/**'
+      - 'dpevaluation/**'
+      - .github/workflows/memory-test.yml
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          memory-test/build.sh
+          echo ${{ secrets.PAT }} | docker login ghcr.io -u anthager --password-stdin
+          docker push ghcr.io/anthager/memory-test

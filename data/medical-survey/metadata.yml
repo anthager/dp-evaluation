@@ -1,0 +1,179 @@
+ordinal_columns:
+  - name: q1
+    lower: 1
+    upper: 5
+    type: int
+    meta: In general, would you say your health is?
+  - name: q2
+    lower: 0
+    upper: 30
+    type: int
+    meta: For how many days during the past 30 days was your physical health not good?
+  - name: q3
+    lower: 0
+    upper: 30
+    type: int
+    meta: For how many days during the past 30 days was your mental health not good?
+  # - name: ppagecat
+  #   lower: 1
+  #   upper: 7
+  #   type: int
+  #   meta: Age 7 categories
+  # - name: ppgender
+  #   lower: 1
+  #   upper: 2
+  #   type: int
+  #   meta: Gender
+  # - name: q12_1
+  #   lower: 1
+  #   upper: 2
+  #   type: int
+  #   meta: Needed but didn't get prescription drugs.
+  # - name: q12_2
+  #   lower: 1
+  #   upper: 2
+  #   type: int
+  #   meta: Needed but didn't get medical care.
+  # - name: q12_3
+  #   lower: 1
+  #   upper: 2
+  #   type: int
+  #   meta: Needed to but didn't see a general doctor.
+  # - name: q12_4
+  #   lower: 1
+  #   upper: 2
+  #   type: int
+  #   meta: Needed to but didn't see a specialist.
+  # - name: q12_5
+  #   lower: 1
+  #   upper: 2
+  #   type: int
+  #   meta: Needed to but didn't get medical tests, treatment, or follow-up care.
+  - name: ppincimp
+    lower: 1
+    upper: 21
+    type: int
+    meta: Household income
+  - name: insured
+    lower: 0
+    upper: 1
+    type: int
+    meta: Insured at time of survey
+categorical_columns:
+  - name: ppeducat
+    lower: 1
+    upper: 4
+    type: int
+    meta: Education (categorical)
+other_columns:
+  # smartnoise doesn't work without a private colum
+  - name: rid
+    private: true
+    upper: 1000000000000000000
+    lower: 0
+    type: int
+
+params:
+  num_of_runs: 1
+
+  epsilons:
+    - 0.1
+    - 0.25
+    - 0.5
+    - 0.75
+    - 1.
+    - 1.25
+    - 1.5
+    - 1.75
+    - 2.
+    - 2.25
+    - 2.5
+    - 2.75
+    - 3.
+    - -1 # We use only -1 for ML tasks on synthetic data
+
+  dataset_sizes:
+    - 1000
+    - 2000
+    - 3000
+    - 4000
+    - 5000
+    - 6000
+    - 7000
+    - 8000
+    - 8500
+    - 9000
+
+statistical_queries:
+  allowlisted_queries:
+    - histogram
+    - sum
+    - avg
+    - count
+
+machine_learning:
+  model: "LinearRegression"
+  optimizer: "SGD"
+  target: "q1"
+  epochs: 30
+  batch_size: 4
+  learning_rate:
+    private: 0.01
+    non_private: 0.001
+  norm_clips:
+    - 1.0
+
+synthetic_data:
+  allowlisted_columns:
+    - q1
+    - q2
+    - q3
+    - ppincimp
+    - insured
+    - ppeducat
+  smartnoise_mwem:
+    query_count:
+      - 200
+      - 300
+      - 400 # default
+      - 500
+      - 600
+  smartnoise_dpctgan:
+    batch_size:
+      # - 100
+      - 300
+      - 500 # default
+      # - 700
+      # - 900
+    epochs:
+      # - 50
+      - 300 # default
+      # - 700
+  smartnoise_patectgan:
+    batch_size:
+      # - 100
+      - 300
+      - 500 # default
+      # - 700
+      # - 900
+    epochs:
+      # - 50
+      - 300 # default
+      # - 700
+  gretel:
+    epochs:
+      # - 50
+      - 100
+      # - 700
+    predict_batch_size:
+      - 1
+    rnn_units:
+      - 32
+    batch_size:
+      - 4
+    learning_rate:
+      - .001
+    dp_noise_multiplier:
+      - .3
+    dp_l2_norm_clip:
+      - .1

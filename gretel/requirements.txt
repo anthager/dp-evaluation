@@ -1,0 +1,6 @@
+gretel-synthetics
+gretel_client
+pandas
+pandasql
+pyyaml
+jinja2

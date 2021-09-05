@@ -1,0 +1,199 @@
+categorical_columns:
+  - lower: 0.0
+    name: sex
+    type: int
+    upper: 1.0
+ordinal_columns: 
+  - lower: 36.0
+    name: age
+    type: int
+    upper: 85.0
+other_columns:
+  - lower: -4.2625
+    name: test_time
+    type: float
+    upper: 215.49
+  - lower: 5.0377
+    name: motor_updrs
+    type: float
+    upper: 39.511
+  - lower: 7.0
+    name: total_updrs
+    type: float
+    upper: 54.992
+  - lower: 0.00083
+    name: jitter_percent
+    type: float
+    upper: 0.09999
+  - lower: 0
+    name: jitter_abs
+    type: float
+    upper: 0.0005
+  - lower: 0.00033
+    name: jitter_rap
+    type: float
+    upper: 0.05754
+  - lower: 0.00043
+    name: jitter_ppq5
+    type: float
+    upper: 0.06956
+  - lower: 0.00098
+    name: jitter_ddp
+    type: float
+    upper: 0.17263
+  - lower: 0.00306
+    name: shimmer
+    type: float
+    upper: 0.26863
+  - lower: 0.026
+    name: shimmer_db
+    type: float
+    upper: 2.107
+  - lower: 0.00161
+    name: shimmer_apq3
+    type: float
+    upper: 0.16267
+  - lower: 0.00194
+    name: shimmer_apq5
+    type: float
+    upper: 0.16702
+  - lower: 0.00249
+    name: shimmer_apq11
+    type: float
+    upper: 0.27546
+  - lower: 0.00484
+    name: shimmer_dda
+    type: float
+    upper: 0.48802
+  - lower: 0.000286
+    name: nhr
+    type: float
+    upper: 0.74826
+  - lower: 1.659
+    name: hnr
+    type: float
+    upper: 37.875
+  - lower: 0.15102
+    name: rpde
+    type: float
+    upper: 0.96608
+  - lower: 0.51404
+    name: dfa
+    type: float
+    upper: 0.8656
+  - lower: 0.021983
+    name: ppe
+    type: float
+    upper: 0.73173
+  - lower: 0
+    name: id
+    type: int
+    upper: 5500
+    private: true
+
+params:
+  num_of_runs: 1
+
+  epsilons:
+    - 0.1
+    - 0.25
+    - 0.5
+    - 0.75
+    - 1.
+    - 1.25
+    - 1.5
+    - 1.75
+    - 2.
+    - 2.25
+    - 2.5
+    - 2.75
+    - 3.
+    - -1
+
+  dataset_sizes:
+    - 1000
+    - 2000
+    - 3000
+    - 4000
+    - 5000
+
+machine_learning:
+  model: "LinearRegression"
+  optimizer: "SGD"
+  target: "total_updrs"
+  epochs: 30
+  batch_size: 4
+  learning_rate:
+    private: 0.01
+    non_private: 0.001
+  norm_clips:
+    - 1.0
+
+statistical_queries:
+  allowlisted_queries:
+    - histogram
+    - sum
+    - avg
+    - count
+
+synthetic_data:
+  allowlisted_columns:
+    - id
+    - age
+    - sex
+    - test_time
+    - motor_updrs
+    - total_updrs
+    - jitter_percent
+    - jitter_abs
+    - shimmer
+    - shimmer_db
+    - dfa
+    - ppe
+  smartnoise_dpctgan:
+    batch_size:
+      # - 100
+      - 300
+      - 500 # default
+      # - 700
+      # - 900
+    epochs:
+      # - 50
+      - 300 # default
+      # - 700
+  smartnoise_patectgan:
+    batch_size:
+      # - 100
+      - 300
+      - 500 # default
+      # - 700
+      # - 900
+    epochs:
+      # - 50
+      - 300 # default
+      # - 700
+    teacher_iters: 
+      - 5
+    student_iters: 
+      - 5
+    sample_per_teacher: 
+      - 1000
+    noise_multiplier: 
+      - .001
+  gretel:
+    epochs:
+      # - 50
+      - 100
+      # - 700
+    predict_batch_size:
+      - 1
+    rnn_units:
+      - 32
+    batch_size:
+      - 4
+    learning_rate:
+      - .001
+    dp_noise_multiplier:
+      - .3
+    dp_l2_norm_clip:
+      - .1

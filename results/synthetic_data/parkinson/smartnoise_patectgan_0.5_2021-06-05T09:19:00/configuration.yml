@@ -1,0 +1,13 @@
+batch_size: 500
+dataset_size: 2000
+epochs: 300
+epsilon: 0.5
+generate_time: 7.70889949798584
+noise_multiplier: 0.001
+num_of_runs: 0
+sample_per_teacher: 1000
+student_iters: 5
+teacher_iters: 5
+test_start_time: 1622884698.7951381
+timestamp: '2021-06-05T09:19:00'
+tool: smartnoise_patectgan

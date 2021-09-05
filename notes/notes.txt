@@ -1,0 +1,5 @@
+Thinks to investigate:
+  How will the pure python stuff compare to using sql 
+  How will sql through pandas csv files compare to postgres/mysql
+  
+Lets say that we want to have the answer that a certain person gave to Q1. Lets say for example that 

@@ -1,0 +1,21 @@
+name: gretel-evaluation
+
+on:
+  push:
+    paths:
+      - 'gretel/evaluation/**'
+      - .github/workflows/gretel-evaluation.yml
+      - 'gretel/src/**'
+      - 'dpevaluation/**'
+      - 'gretel/requirements.txt'
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          gretel/evaluation/build.sh
+          echo ${{ secrets.PAT }} | docker login ghcr.io -u anthager --password-stdin
+          docker push ghcr.io/anthager/gretel-evaluation
